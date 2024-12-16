@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+         p, table, ul {
+            font-size : 19px;
+            line-height: 1.6;
+         }
+         pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #F47843;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+         }
+         .mark {
+            background-color: #F4F3F0;
+            padding : 5px;
+            color : #F47843;
+            font-family: 'Andale Mono', monospace;
+            font-size: 17px;
+         }
+         a {
+            color : #F47843;
+         }
+      </style>
+   </head>
+<body>
+<div style="margin-left: 20%; margin-right: 20%; margin-top: 50px; width: 60%">
+<div class="problem-statement">
+   <div class="header">
+      <h1 class="title">Задание 5</h1>
+   </div>
+   <div class="legend">
+      <p style="text-indent: 0em;">Задание заключается в реализации повторного рендера компонента <code class="mark">ResultComponent</code> при нажатии на кнопку. </p>
+      <p>В компоненте есть одна из двух кнопок в зависимости от его состояния: «Оставить ещё одну заявку» и «Оставить заявку снова». Первая кнопка отображается в случае успеха, вторая — в случае ошибки. </p>
+      <p>Логика у них одна — они должны скрыть компонент и вернуть пользователя на экран с заполнением формы.</p>
+
+         <h2> Прилагаемые файлы </h2>
+         <p>Для выполнения задания необходимо скачать архив с дополнительными материалами web2024.zip и распаковать его. Если он уже скачан, продолжить работу в нём. </p>
+         <p>
+            Дальшейшую работу над заданием необходимо проводить только в файле <code class="mark">js/script.js</code> </p>
+
+         <h2> Пример реализации </h2>
+
+         <div style="background-color: #efece7; width : 110%; font-size: 20px;" ><pre>
+   // Создает функцию состояния, которая имеет начальное значение и методы 
+   // для изменения состояния и уведомления подписчиков
+   function createState(initialValue) {
+      // Пишите код здесь
+   }
+            
+   // Отрисовывает компонент, используя указанный контейнер и состояние
+   function render(Component, container, state) {
+      // Пишите код здесь
+   }
+   
+   // Создание состояния
+   const [getStatus, setStatus, subscribeStatus] = createState("hidden");
+   
+   // Рендерим компонент и подписываемся на изменения состояния
+   const rerenderComponent = render(ResultComponent, formResult, {
+      getStatus,
+      onClick: () => {
+         // скрыть компонент и вернуться на экран заполнения формы
+      }
+   });
+   subscribeStatus(rerenderComponent); </pre>
+               </div>
+
+
+      <h2>Задачи</h2>
+      <ul>
+         <li>Реализовать функцию <code class="mark">createState</code>, которая имеет начальное состояние и методы для получения текущего состояния, изменения состояния и уведомления подписчиков</li>
+         <li>Реализовать функцию <code class="mark">render</code>, которая отрисовывает компонент, используя указанный контейнер и состояние</li>
+         <li>Реализовать логику повторного рендера компонента <code class="mark">ResultComponent</code> при нажатии на кнопку</li>
+      </ul>
+
+         <h2>Примечания</h2>
+
+      <p style="text-indent: 0em;"></p>
+      <ul>
+         <li>Атрибут <code class="mark">data-test</code> у тегов убирать нельзя</li>
+         <li>Подробную документацию компонента <code class="mark">ResultComponent</code> можно прочитать в файле <code class="mark">js/ResultComponent.js</code> в формате JavaDoc</li>
+         <li>Отправьте в систему zip-архив с решением задачи</li>
+      </ul>
+
+      <h2> Оценивание </h2>
+      <p> Вы можете получить за это задание 26 баллов при условии реализации всей функциональности.  </p>
+   </div>
+</div>
+
+</div></body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <style>
+         p, table, ul {
+            font-size : 19px;
+            line-height: 1.6;
+         }
+         pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #f36d33;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+         }
+         .mark {
+            background-color: #F4F3F0;
+            padding : 5px;
+            color : #f36d33;
+            font-family: 'Andale Mono', monospace;
+            font-size: 17px;
+         }
+         a {
+            color : #f36d33;
+         }
+         table {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #dddddd;
+            border-collapse: collapse; 
+         }
+         table th {
+            font-weight: bold;
+            padding: 5px;
+            background: #efefef;
+            border: 1px solid #dddddd;
+         }
+         table td {
+            width : 60%;
+            border: 1px solid #dddddd;
+            padding: 5px;
+         }
+         td:nth-child(1), td:nth-child(2) {
+            width : 20%;
+         }
+      </style>
+   </head>
+<body>
+<div style="margin-left: 20%; margin-right: 20%; margin-top: 50px; width: 60%">
+<div class="problem-statement">
+   <div class="header">
+      <h1 class="title">Задание 4</h1>
+   </div>
+   <div class="legend">
+      <p style="text-indent: 0em;">Задание заключается в отправке данных из формы на сервер в формате JSON, обработке ответа сервера и отображении сообщения об успешной отправке формы или ошибке. </p>
+      <p>Компонент, отображающий результат, уже реализован и хранится в файле <code class="mark">js/ResultComponent.js</code></p>
+      <p>IP-адрес сервера: <code class="mark">http://193.124.118.147:8080/</code> </p>
+
+         <h2> Прилагаемые файлы </h2>
+         <p>Для выполнения задания необходимо скачать архив с дополнительными материалами web2024.zip и распаковать его. Если он уже скачан, продолжить работу в нём. </p>
+         <p>
+            Дальшейшую работу над заданием необходимо проводить только в файле <code class="mark">js/script.js</code> </p>
+
+         <h2> Структура запроса к серверу </h2>
+         <table>
+            <thead>
+               <th>
+                  Название поля
+               </th>
+               <th>
+                  Тип
+               </th>
+               <th>
+                  Описание
+               </th>
+            </thead>
+
+            <tr>
+               <td>
+                  from
+               </td>
+               <td>
+                  string
+               </td>
+               <td>
+                  Откуда планируется поездка
+               </td>
+            </tr>
+
+            <tr>
+               <td>
+                  where
+               </td>
+               <td>
+                  string
+               </td>
+               <td>
+                  Место назначения
+               </td>
+            </tr>
+
+            <tr>
+               <td>
+                  date
+               </td>
+               <td>
+                  string
+               </td>
+               <td>
+                  Время поездки в формате UTC, включая часы и минуты
+               </td>
+            </tr>
+
+            <tr>
+               <td>
+                  phone
+               </td>
+               <td>
+                  string
+               </td>
+               <td>
+                  Номер телефона. Строка из 11 символов, без форматирования. Все символы являются цифрами
+               </td>
+            </tr>
+
+            <tr>
+               <td>
+                  tour 
+               </td>
+               <td>
+                  string
+               </td>
+               <td>
+                  Включить экскурсию по месту прибытия или нет
+               </td>
+            </tr>
+
+
+         </table>
+
+         <p>Пример:</p>
+
+         <div style="background-color: #efece7; width : 90%; font-size: 20px;" ><pre>
+   {
+      "from": "Симферополь",
+      "where": "Ялта",
+      "date": new Date("12.06.2024 09:00").toUTCString(),
+      "phone": "79787777777",
+      "tour": true
+   }    </pre>
+               </div>
+
+      <h2>Возможные ответы сервера</h2>
+      <ul>
+         <li>HTTP-код 200: Заявка успешно отправлена
+         </li>
+         <li>HTTP-код 400: Данные заполнены неверно. Заявка не отправлена</li>
+         <li>HTTP-код 5xx: Произошла ошибка на сервере. Заявка не отправлена</li>
+      </ul>
+
+      <h2>Как использовать компонент ResultComponent</h2>
+      <div style="background-color: #efece7; width : 90%; font-size: 20px;" ><pre>
+   // Создаем компонент
+   const component = ResultComponent({ status: "success", 
+      from: "Симферополь", where: "Ялта" });
+
+   // Скрываем форму
+   document.getElementById("order-form").classList.add("hidden");
+
+   // Добавляем компонент в документ
+   document.getElementById("form-result").append(component);            </pre>
+                     </div>
+
+      <h2>Задачи</h2>
+      <ul>
+         <li>Отправить данные на сервер</li>
+         <li>Обработать ответ сервера и отобразить в документе результат отправки данных на сервер с помощью компонента <code class="mark">ResultComponent</code></li>
+      </ul>
+
+         <h2>Примечания</h2>
+
+      <p style="text-indent: 0em;"></p>
+      <ul>
+         <li>Атрибут <code class="mark">data-test</code> у тегов убирать нельзя</li>
+         <li>Не забудьте добавить заголовок <code class="mark">Content-Type</code> со значением <code class="mark">application/json</code> в fetch-запросе</li>
+         <li>Отправьте в систему zip-архив с решением задачи</li>
+      </ul>
+
+      <h2> Оценивание </h2>
+      <p> Вы можете получить за это задание 25 баллов при условии реализации всей функциональности.  </p>
+   </div>
+</div>
+
+</div></body></html>
